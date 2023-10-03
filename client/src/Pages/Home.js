@@ -36,6 +36,10 @@ export default class Home extends Component {
               <CpuUsage />
               <Label title="Avg CPU Usage" />
             </Col>
+              <Col span={6}>
+                  <CpuUsage />
+                  <Label title="Total CPU Usage" />
+              </Col>
             <Col span={12}>
               <Traffic />
               <Label title="Traffic heartbeat" />
@@ -44,6 +48,18 @@ export default class Home extends Component {
               <Distribution />
               <Label title="Region Distribution" />
             </Col>
+              <Col span={6}>
+                  <CpuUsage />
+                  <Label title="Total CPU Usage" />
+              </Col>
+              <Col span={6}>
+                  <CpuUsage />
+                  <Label title="Total CPU Usage" />
+              </Col>
+              <Col span={6}>
+                  <CpuUsage />
+                  <Label title="Total CPU Usage" />
+              </Col>
           </Row>
           <br />
           <h2>Alerts</h2>
