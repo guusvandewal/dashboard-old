@@ -52,12 +52,13 @@ class CpuUsage extends Component {
           const amISpeaking = synth.speaking; // will return true if utterance 1 or utterance 2 are currently being spoken
       }
     return (
-      <VictoryChart width={450} height={300}>
+      <VictoryChart width={450} height={300} >
         <VictoryAxis
           style={{
             axis: { stroke: "transparent" },
             ticks: { stroke: "transparent" },
-            tickLabels: { fill: "transparent" }
+            tickLabels: { fill: "transparent" },
+            fill: "#FFFFFF"
           }}
         />
         <VictoryPie
@@ -84,7 +85,7 @@ class CpuUsage extends Component {
           textAnchor="middle"
           verticalAnchor="middle"
           text={`${Math.round(data.cpu.percentage)}%`}
-          style={{ fontSize: 45 }}
+          style={{ fontSize: 45, fill: "#FFFFFF" }}
         />
       </VictoryChart>
     );
