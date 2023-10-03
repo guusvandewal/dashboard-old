@@ -38,6 +38,19 @@ class CpuUsage extends Component {
     if (error) {
       return <p>Error!</p>;
     }
+      if(data.cpu.percentage > 60){
+          console.log("CPU usage is over 60%")
+          const synth = window.speechSynthesis;
+
+
+          const utterance2 = new SpeechSynthesisUtterance(
+              "Alarm",
+          );
+
+          //synth.speak(utterance2);
+
+          const amISpeaking = synth.speaking; // will return true if utterance 1 or utterance 2 are currently being spoken
+      }
     return (
       <VictoryChart width={450} height={300}>
         <VictoryAxis
@@ -48,6 +61,7 @@ class CpuUsage extends Component {
           }}
         />
         <VictoryPie
+
           standalone={false}
           animate={{ duration: 500 }}
           data={this.getData(data.cpu.percentage)}
@@ -58,6 +72,7 @@ class CpuUsage extends Component {
             data: {
               fill: ({ datum }) => {
                 const color = datum.y > 60 ? "#d35400" : "#27ae60";
+
                 return datum.x === 1 ? color : "transparent";
               }
             }
@@ -80,10 +95,13 @@ const CpuUsageContainer = () => (
   <div style={{ border: "1px solid #2c3e50", height: 300 }}>
     <Query query={QUERY}>
       {({ subscribeToMore, ...result }) => (
+          console.log(result),
         <CpuUsage
           {...result}
           subscribeToNewData={() =>
+
             subscribeToMore({
+
               document: SUBSCRIPTION,
               updateQuery: (prev, { subscriptionData }) => {
                 if (!subscriptionData.data) return prev;

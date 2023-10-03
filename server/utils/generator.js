@@ -7,7 +7,8 @@ const cpuData = () => {
   const min = 20;
   const max = 90;
 
-  const percentage = parseInt(Math.random() * (max - min) + min, 10);
+  let percentage;
+  percentage = parseInt(Math.random() * (max - min) + min, 10);
   return {
     percentage,
   };
